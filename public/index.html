@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#101116">
+<title>超智能决斗 · 终末之战</title>
+<link rel="stylesheet" href="css/ui.css">
+<link rel="stylesheet" href="css/lobby.css">
+<link rel="stylesheet" href="css/battle.css">
+<link rel="stylesheet" href="css/touch.css">
+<link rel="stylesheet" href="css/growth.css">
+</head>
+<body>
+<svg aria-hidden="true" class="symbols" xmlns="http://www.w3.org/2000/svg">
+ <symbol id="i-mark" viewBox="0 0 40 32"><path fill="currentColor" stroke="none" d="M5 6h11l-6 7h7l-9 11H0l6-9H0zm17-5h15L25 13h11L13 32l6-14H9z"/></symbol>
+ <symbol id="i-audio" viewBox="0 0 24 24"><path d="M3 9h4l5-4v14l-5-4H3zM16 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></symbol>
+ <symbol id="i-mute" viewBox="0 0 24 24"><path d="M3 9h4l5-4v14l-5-4H3zm13 0 5 6m0-6-5 6"/></symbol>
+ <symbol id="i-key" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M5 9h2m2 0h2m2 0h2m2 0h2M5 12h2m2 0h2m2 0h2m2 0h2M7 15h10"/></symbol>
+ <symbol id="i-swords" viewBox="0 0 24 24"><path d="m4 3 3 1 12 12-3 3L4 7zm11 12 5 5m-7-2 5-5M20 3l-3 1-4 4M9 14l-4 5m-2-3 5 5m0-9 3 3"/></symbol>
+ <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M3 12h17m-7-7 7 7-7 7"/></symbol>
+ <symbol id="i-book" viewBox="0 0 24 24"><path d="M3 4h6l3 2 3-2h6v14h-6l-3 2-3-2H3zm9 2v14"/></symbol>
+ <symbol id="i-close" viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19"/></symbol>
+ <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 4v16m8-16v16" stroke-width="4"/></symbol>
+ <symbol id="i-cross" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6"/><path d="M12 2v6m0 8v6M2 12h6m8 0h6"/></symbol>
+ <symbol id="i-full" viewBox="0 0 24 24"><path d="M3 9V3h6m6 0h6v6m0 6v6h-6m-6 0H3v-6"/></symbol>
+ <symbol id="i-pad" viewBox="0 0 24 24"><path d="M7 6h10c3 0 4 3 5 9 .5 4-2 5-4 2l-2-2H8l-2 2c-2 3-5 2-4-2 1-6 2-9 5-9zM5 10h5m-2.5-2.5v5M15 10h.1m3 2h.1"/></symbol>
+</svg>
+<header class="topbar">
+ <div class="nav-inner">
+  <button class="brand" data-act="lobby" aria-label="超智能决斗，对战大厅"><svg class="brand-mark"><use href="#i-mark"/></svg><span><strong>超智能决斗</strong><small>终末之战</small></span></button>
+  <nav aria-label="主要导航"><button data-act="lobby" id="nav-lobby" class="nav-link selected">决斗殿堂</button><button data-act="codex" id="nav-codex" class="nav-link">秘技典籍</button><button data-net="phone" class="nav-link nav-phone">手机扫码玩</button></nav>
+  <div class="nav-tools"><button data-net="skins" class="tool nav-wardrobe">智慧圣殿</button><button data-net="rank" class="tool nav-rank">荣誉榜</button><button data-net="account" id="guild-user" class="tool nav-account">登录 / 注册</button><button data-act="sound" id="sound" class="tool"></button><button data-act="guide" class="tool" title="操作说明"><svg><use href="#i-key"/></svg><span>操作说明</span></button><button data-act="full" class="tool icon-only" title="全屏切换" aria-label="全屏切换"><svg><use href="#i-full"/></svg></button></div>
+ </div>
+</header>
+<main>
+ <section id="lobby" class="lobby">
+  <div class="section-top"><div><div class="eyebrow"><span class="gold-rule"></span><span id="lobby-format">单人试炼</span></div><h1>请选择你的AI娘</h1></div><div class="mode-switch" role="group" aria-label="对战模式"><button data-mode="solo">单人试炼</button><button data-mode="versus">同屏决斗</button><button data-net="rooms">联机排位</button></div></div>
+  <section class="player-standing" aria-label="我的成长">
+   <div id="standing-values"><strong>游客练习</strong><span>登录后记录等级、力量和 Token</span></div>
+   <div class="standing-actions"><button data-net="skins" type="button">智慧圣殿</button><button data-net="account" type="button" id="standing-account">登录 / 注册</button></div>
+  </section>
+  <div class="matchup" id="matchup" aria-label="双方选手">
+   <div id="hero0" class="hero left"></div><div id="hero1" class="hero right"></div>
+   <div class="seam" aria-hidden="true"></div><div class="versus" aria-hidden="true"><span>VS</span></div>
+  </div>
+  <div class="roster-header"><h2><span class="mark"></span>英雄名册</h2><span class="pick-hint">1P 用 A / D 切换，2P 用 ← / → 切换</span><div class="assign" aria-label="正在选角的玩家"><button data-side="0"></button><button data-side="1"></button></div></div>
+  <div class="cards" id="roster" aria-label="六位可选斗士"></div>
+  <section class="battlefields" aria-labelledby="stage-heading"><div class="stage-heading"><h2 id="stage-heading">选择战场</h2><span id="stage-caption" aria-live="polite"></span></div><div class="stage-gallery" id="stage-gallery" role="group" aria-label="可选战场"></div></section>
+  <div class="launch-row"><div id="cpu-level" role="group" aria-label="试炼难度"><span>试炼难度</span><button data-level="easy">入门</button><button data-level="normal">标准</button><button data-level="hard">高手</button></div><div class="controls-choice" role="group" aria-label="操控方式"><button data-controls-mode="keyboard">键盘</button><button data-controls-mode="touch">触屏</button></div><span id="launch-rule" class="launch-rule">每局 120 秒 · 三局两胜</span><button class="launch" data-act="start"><svg><use href="#i-swords"/></svg>进入战场 <kbd>ENTER</kbd></button></div>
+ </section>
+ <section id="battle" hidden>
+  <div class="battle-top"><div class="battle-meta"><span id="battle-format"></span><span class="stage-slug">雨夜天台</span></div><button data-act="guide" class="battle-command" aria-label="操控设置"><svg><use href="#i-pad"/></svg><span>操控</span></button><button data-act="pause" class="tool" aria-label="对战菜单"><svg><use href="#i-pause"/></svg><span>菜单</span></button></div>
+  <div class="arena-wrap"><canvas id="arena" width="1200" height="600" aria-label="双人格斗战场"></canvas><div class="hud"><div id="hud0" class="playerhud"></div><div class="timebox"><small id="round-text"></small><b id="timer"></b></div><div id="hud1" class="playerhud reverse"></div></div><div id="announcement" role="status" aria-live="polite"></div><div id="entrance-caption" hidden><b></b><span></span></div><button id="skip-opening" data-act="skip-opening" hidden>跳过出场</button><div class="move-toast" id="toast0"></div><div class="move-toast second" id="toast1"></div><div id="combo0" class="combo"></div><div id="combo1" class="combo second"></div></div>
+  <div class="skillbars"><div id="skills0"></div><div id="skills1"></div></div>
+  <div id="touch-controls" class="touch-controls" aria-label="触屏操作"></div>
+  <div class="movement-help"><span><b>1P</b> A / D 移动 · W 跳跃 · S 格挡</span><span id="other-controls"></span></div>
+ </section>
+</main>
+<footer><div class="footer-wrap"><span><b class="status-led"></b><span id="session-mode">本地对战</span></span><button data-act="credits">制作名单</button></div></footer>
+<dialog id="modal" aria-labelledby="modal-title"><div class="modal-top"><div><small id="modal-en"></small><h2 id="modal-title"></h2></div><button data-act="close" class="tool icon-only" title="关闭" aria-label="关闭"><svg><use href="#i-close"/></svg></button></div><div id="modal-body"></div></dialog>
+<dialog id="guild" class="guild" aria-labelledby="guild-title"><div class="modal-top"><h2 id="guild-title">决斗会馆</h2><button type="button" data-net="close" class="tool icon-only" aria-label="关闭"><svg><use href="#i-close"/></svg></button></div><div class="guild-body" id="guild-body"></div><p id="guild-status" role="status" aria-live="polite"></p></dialog>
+<script src="js/manifest.js"></script>
+<script src="js/media.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/progression.js"></script>
+<script src="js/cpu.js"></script>
+<script src="js/bladefx.js"></script>
+<script src="js/effects.js"></script>
+<script src="js/facial.js"></script>
+<script src="js/frames.js"></script>
+<script src="js/regalia.js"></script>
+<script src="js/fullbody.js"></script>
+<script src="js/costumes.js"></script>
+<script src="js/stages.js"></script>
+<script src="js/renderer.js"></script>
+<script src="js/combat-sfx.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/manual.js"></script>
+<script src="js/showcase.js"></script>
+<script src="js/qrcode.js"></script>
+<script src="js/online.js"></script>
+<script src="js/touch.js"></script>
+<script src="js/app.js"></script>
+</body></html>

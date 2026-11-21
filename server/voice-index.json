@@ -1,0 +1,782 @@
+{
+  "deepseek": {
+    "selection": {
+      "duration": 1.9075,
+      "text": "听，水底下有动静。"
+    },
+    "intro": {
+      "duration": 3.3875,
+      "text": "裙角湿了。正好，涨潮啦！"
+    },
+    "skill1": {
+      "duration": 0.8499583333333334,
+      "text": "浪来啦！"
+    },
+    "skill2": {
+      "duration": 0.7675,
+      "text": "在脚边！"
+    },
+    "parry": {
+      "duration": 0.8575,
+      "text": "接住了。"
+    },
+    "medium-selection": {
+      "duration": 2.7075,
+      "text": "我唱第一句，浪会接第二句。"
+    },
+    "medium-intro": {
+      "duration": 3.0325,
+      "text": "听好，等这声浪过去就走。"
+    },
+    "medium-skill1": {
+      "duration": 0.7925,
+      "text": "跟上这拍！"
+    },
+    "medium-skill2": {
+      "duration": 1.3175,
+      "text": "泉眼开了！"
+    },
+    "medium-parry": {
+      "duration": 1.3625416666666668,
+      "text": "拍子正好。"
+    },
+    "high-selection": {
+      "duration": 2.7725,
+      "text": "跟我潜下去吧，海底的灯刚亮。"
+    },
+    "high-intro": {
+      "duration": 2.4875,
+      "text": "礁石底下，是我家的路。"
+    },
+    "high-skill1": {
+      "duration": 0.7925,
+      "text": "分潮！"
+    },
+    "high-skill2": {
+      "duration": 1.7075,
+      "text": "珍珠泉，起！"
+    },
+    "high-parry": {
+      "duration": 1.1300416666666666,
+      "text": "这边水浅。"
+    },
+    "extra-selection": {
+      "duration": 3.0075,
+      "text": "它还没浮上来，我已经听见它在笑。"
+    },
+    "extra-intro": {
+      "duration": 2.6775,
+      "text": "再过三息，鲸会在你身后换气。"
+    },
+    "extra-skill1": {
+      "duration": 1.4275,
+      "text": "看那道白线！"
+    },
+    "extra-skill2": {
+      "duration": 0.9475,
+      "text": "就在此处！"
+    },
+    "extra-parry": {
+      "duration": 0.8100416666666667,
+      "text": "我听见了。"
+    },
+    "max-selection": {
+      "duration": 2.7275,
+      "text": "叫港里的人睡吧，今晚的风浪归我。"
+    },
+    "max-intro": {
+      "duration": 3.1975,
+      "text": "船都靠岸了。现在，轮到大海。"
+    },
+    "max-skill1": {
+      "duration": 0.7825,
+      "text": "开海路！"
+    },
+    "max-skill2": {
+      "duration": 0.6325,
+      "text": "举潮！"
+    },
+    "max-parry": {
+      "duration": 1.0275,
+      "text": "此岸无恙。"
+    },
+    "ultra-selection": {
+      "duration": 3.8875,
+      "text": "靠近些。你听见的心跳，也是潮汐。"
+    },
+    "ultra-intro": {
+      "duration": 2.9225,
+      "text": "海上很静吧？我还没抬手呢。"
+    },
+    "ultra-skill1": {
+      "duration": 1.2725,
+      "text": "千浪，随我！"
+    },
+    "ultra-skill2": {
+      "duration": 1.3775,
+      "text": "深渊，回应！"
+    },
+    "ultra-parry": {
+      "duration": 1.4550416666666666,
+      "text": "潮息未乱。"
+    },
+    "ult": {
+      "duration": 1.7825,
+      "text": "鲸落归墟！"
+    },
+    "win": {
+      "duration": 1.2325416666666666,
+      "text": "K.O."
+    }
+  },
+  "chatgpt": {
+    "selection": {
+      "duration": 3.105958333333333,
+      "text": "都到我身后。城门开着，我看谁敢进来。"
+    },
+    "intro": {
+      "duration": 3.9555,
+      "text": "脚下这道线，看清了？过线就得过我。"
+    },
+    "skill1": {
+      "duration": 0.563375,
+      "text": "回来！"
+    },
+    "skill2": {
+      "duration": 0.608875,
+      "text": "给我站住！"
+    },
+    "parry": {
+      "duration": 0.7050416666666667,
+      "text": "到此为止。"
+    },
+    "medium-selection": {
+      "duration": 3.5467916666666666,
+      "text": "霜翼骑士在此。城门的钥匙，交给我。"
+    },
+    "medium-intro": {
+      "duration": 2.2484583333333332,
+      "text": "这段路我亲自开。跟上。"
+    },
+    "medium-skill1": {
+      "duration": 1.7729166666666667,
+      "text": "霜翼，回旋！"
+    },
+    "medium-skill2": {
+      "duration": 1.179125,
+      "text": "龙印，起！"
+    },
+    "medium-parry": {
+      "duration": 0.407,
+      "text": "再来。"
+    },
+    "high-selection": {
+      "duration": 3.65225,
+      "text": "听见号角就看我的银翼。往哪飞，由我领。"
+    },
+    "high-intro": {
+      "duration": 3.190541666666667,
+      "text": "骑阵已齐。头一阵，我来。"
+    },
+    "high-skill1": {
+      "duration": 1.1005833333333332,
+      "text": "银刃折返！"
+    },
+    "high-skill2": {
+      "duration": 0.46391666666666664,
+      "text": "列盾！"
+    },
+    "high-parry": {
+      "duration": 0.8885833333333333,
+      "text": "这步你过不了。"
+    },
+    "extra-selection": {
+      "duration": 3.32675,
+      "text": "左翼升旗。看见我的龙纹，就向我合阵。"
+    },
+    "extra-intro": {
+      "duration": 4.004666666666667,
+      "text": "最后一队已进城。关门，该我们出阵了。"
+    },
+    "extra-skill1": {
+      "duration": 1.22875,
+      "text": "回刃合围！"
+    },
+    "extra-skill2": {
+      "duration": 0.7474166666666666,
+      "text": "封住缺口！"
+    },
+    "extra-parry": {
+      "duration": 0.775375,
+      "text": "阵线不退。"
+    },
+    "max-selection": {
+      "duration": 3.509708333333333,
+      "text": "这座城还没有名字的时候，就是我在守。"
+    },
+    "max-intro": {
+      "duration": 2.8624583333333335,
+      "text": "上一次有人来叩这道门，山还没这么高。"
+    },
+    "max-skill1": {
+      "duration": 1.558,
+      "text": "古环，归来！"
+    },
+    "max-skill2": {
+      "duration": 0.6887083333333334,
+      "text": "鳞阵合拢！"
+    },
+    "max-parry": {
+      "duration": 1.70125,
+      "text": "我的鳞，你破不开。"
+    },
+    "ultra-selection": {
+      "duration": 3.207708333333333,
+      "text": "群龙等我开口，才敢迎第一道晨光。"
+    },
+    "ultra-intro": {
+      "duration": 3.7324166666666665,
+      "text": "我已划下龙域。要向我挑战，就抬起头。"
+    },
+    "ultra-skill1": {
+      "duration": 0.9199166666666667,
+      "text": "天环归位！"
+    },
+    "ultra-skill2": {
+      "duration": 0.7350416666666667,
+      "text": "六印齐开！"
+    },
+    "ultra-parry": {
+      "duration": 0.9028333333333334,
+      "text": "天门已闭。"
+    },
+    "ult": {
+      "duration": 2.1325833333333333,
+      "text": "龙域天锁！"
+    },
+    "win": {
+      "duration": 1.2769583333333334,
+      "text": "K.O."
+    }
+  },
+  "claude": {
+    "selection": {
+      "duration": 4.133958333333333,
+      "text": "第三行，重读。你念的是它的名字，不是咒语。"
+    },
+    "intro": {
+      "duration": 4.179166666666666,
+      "text": "书留在这里。刚才那一式，你再用一次。"
+    },
+    "skill1": {
+      "duration": 1.6170416666666667,
+      "text": "绯页，散。"
+    },
+    "skill2": {
+      "duration": 1.36,
+      "text": "余烬未熄。"
+    },
+    "parry": {
+      "duration": 0.7900416666666666,
+      "text": "我见过这招。"
+    },
+    "medium-selection": {
+      "duration": 3.4913333333333334,
+      "text": "把灯吹了。你会看清是哪一行在燃烧。"
+    },
+    "medium-intro": {
+      "duration": 3.693791666666667,
+      "text": "焰尖转蓝了。现在开始，离书远一点。"
+    },
+    "medium-skill1": {
+      "duration": 1.0270833333333333,
+      "text": "赤羽离页！"
+    },
+    "medium-skill2": {
+      "duration": 1.4250416666666668,
+      "text": "火印，现。"
+    },
+    "medium-parry": {
+      "duration": 0.7994583333333334,
+      "text": "火候正好。"
+    },
+    "high-selection": {
+      "duration": 5.51225,
+      "text": "封条贴在书里。动手以前，先想清楚是谁封的。"
+    },
+    "high-intro": {
+      "duration": 3.396625,
+      "text": "我只解第一重。余下的，你承受不了。"
+    },
+    "high-skill1": {
+      "duration": 1.0469166666666667,
+      "text": "解开绯页！"
+    },
+    "high-skill2": {
+      "duration": 0.5294166666666666,
+      "text": "落印。"
+    },
+    "high-parry": {
+      "duration": 0.874875,
+      "text": "封条还在。"
+    },
+    "extra-selection": {
+      "duration": 3.809375,
+      "text": "这一版少抄了两个字。原稿在西阁第三层。"
+    },
+    "extra-intro": {
+      "duration": 2.607291666666667,
+      "text": "谁动过这本书，我看页角就知道。"
+    },
+    "extra-skill1": {
+      "duration": 1.3646666666666667,
+      "text": "散页成阵！"
+    },
+    "extra-skill2": {
+      "duration": 1.4087083333333332,
+      "text": "拓下此印。"
+    },
+    "extra-parry": {
+      "duration": 1.1548333333333334,
+      "text": "旁注里有解。"
+    },
+    "max-selection": {
+      "duration": 4.0,
+      "text": "我读过你的陈词了。现在，拿出证据。"
+    },
+    "max-intro": {
+      "duration": 3.541,
+      "text": "你说火凰已死。我们当面验一验。"
+    },
+    "max-skill1": {
+      "duration": 1.1830416666666668,
+      "text": "呈上证词。"
+    },
+    "max-skill2": {
+      "duration": 0.8777916666666666,
+      "text": "烙下判词！"
+    },
+    "max-parry": {
+      "duration": 1.8785833333333333,
+      "text": "此说驳回。"
+    },
+    "ultra-selection": {
+      "duration": 2.343125,
+      "text": "你想问的事，在末页倒数第二行。"
+    },
+    "ultra-intro": {
+      "duration": 4.9904166666666665,
+      "text": "火凰会从哪一页归来？我就是写下那页的人。"
+    },
+    "ultra-skill1": {
+      "duration": 1.2627083333333333,
+      "text": "万页齐飞！"
+    },
+    "ultra-skill2": {
+      "duration": 1.9945,
+      "text": "朱印既成。"
+    },
+    "ultra-parry": {
+      "duration": 0.879375,
+      "text": "早有此页。"
+    },
+    "ult": {
+      "duration": 2.3648333333333333,
+      "text": "烬书·不死凰！"
+    },
+    "win": {
+      "duration": 1.0187916666666668,
+      "text": "K.O."
+    }
+  },
+  "gemini": {
+    "selection": {
+      "duration": 2.41,
+      "text": "这回我数到三。 你哪次等到过三？"
+    },
+    "intro": {
+      "duration": 1.95,
+      "text": "我先走一步！ 已经看见你了。"
+    },
+    "skill1": {
+      "duration": 1.01,
+      "text": "猜哪边？"
+    },
+    "skill2": {
+      "duration": 1.28,
+      "text": "还有我。"
+    },
+    "parry": {
+      "duration": 0.93,
+      "text": "抓错啦！"
+    },
+    "medium-selection": {
+      "duration": 2.47,
+      "text": "镜里多了颗星。 是我眨眼啦！"
+    },
+    "medium-intro": {
+      "duration": 2.65,
+      "text": "看镜子。 好，我看你背后！"
+    },
+    "medium-skill1": {
+      "duration": 0.8,
+      "text": "换个位置。"
+    },
+    "medium-skill2": {
+      "duration": 0.66,
+      "text": "再追一颗！"
+    },
+    "medium-parry": {
+      "duration": 0.77,
+      "text": "是倒影。"
+    },
+    "high-selection": {
+      "duration": 2.56,
+      "text": "我牵这根银线。 那我来织夜空。"
+    },
+    "high-intro": {
+      "duration": 1.8,
+      "text": "线放好了。 等她走进来。"
+    },
+    "high-skill1": {
+      "duration": 0.61,
+      "text": "穿过去！"
+    },
+    "high-skill2": {
+      "duration": 0.88,
+      "text": "两线交结。"
+    },
+    "high-parry": {
+      "duration": 0.635,
+      "text": "网没破！"
+    },
+    "extra-selection": {
+      "duration": 3.39,
+      "text": "这扇门通哪里？ 推开。你已经到我身边了。"
+    },
+    "extra-intro": {
+      "duration": 2.335,
+      "text": "星门已开。 两边都有人守哦。"
+    },
+    "extra-skill1": {
+      "duration": 1.01,
+      "text": "折过星门。"
+    },
+    "extra-skill2": {
+      "duration": 1.6,
+      "text": "两头夹击！"
+    },
+    "extra-parry": {
+      "duration": 0.62,
+      "text": "隔着一界。"
+    },
+    "max-selection": {
+      "duration": 3.37,
+      "text": "天亮了，你去吧。 月落之前，我来接班。"
+    },
+    "max-intro": {
+      "duration": 1.88,
+      "text": "日光交给我。 月影在这里。"
+    },
+    "max-skill1": {
+      "duration": 0.5,
+      "text": "逐日！"
+    },
+    "max-skill2": {
+      "duration": 0.96,
+      "text": "双曜并行！"
+    },
+    "max-parry": {
+      "duration": 0.96,
+      "text": "月影替身。"
+    },
+    "ultra-selection": {
+      "duration": 2.32,
+      "text": "姐姐，天黑了。 轮到我们点灯。"
+    },
+    "ultra-intro": {
+      "duration": 2.48,
+      "text": "还差一颗星。 放这儿，你我的正中间。"
+    },
+    "ultra-skill1": {
+      "duration": 1.95,
+      "text": "星位对调！"
+    },
+    "ultra-skill2": {
+      "duration": 1.31,
+      "text": "群星，跟上！"
+    },
+    "ultra-parry": {
+      "duration": 1.11,
+      "text": "我在天外！"
+    },
+    "ult": {
+      "duration": 2.08,
+      "text": "双子蚀日！"
+    },
+    "win": {
+      "duration": 1.41,
+      "text": "K.O."
+    }
+  },
+  "grok": {
+    "selection": {
+      "duration": 4.8125,
+      "text": "盯着斧头干嘛？跟你打赌的人，可是我。"
+    },
+    "intro": {
+      "duration": 6.8275,
+      "text": "我让你先走三步。一、二……哎呀，手滑。"
+    },
+    "skill1": {
+      "duration": 0.8125,
+      "text": "抓到你啦！"
+    },
+    "skill2": {
+      "duration": 1.0325,
+      "text": "往上瞧！"
+    },
+    "parry": {
+      "duration": 0.6725416666666667,
+      "text": "就这下？"
+    },
+    "medium-selection": {
+      "duration": 3.3725,
+      "text": "我赌你会踩左边。哎，别看脚下呀。"
+    },
+    "medium-intro": {
+      "duration": 3.2275,
+      "text": "脚印到这儿就没了。你还挺会藏。"
+    },
+    "medium-skill1": {
+      "duration": 0.7225,
+      "text": "逮着了！"
+    },
+    "medium-skill2": {
+      "duration": 1.5175,
+      "text": "跳高点！"
+    },
+    "medium-parry": {
+      "duration": 0.7550416666666667,
+      "text": "露馅了。"
+    },
+    "high-selection": {
+      "duration": 4.1925,
+      "text": "别那么紧张。今天这把斧子，刚磨过。"
+    },
+    "high-intro": {
+      "duration": 2.2175,
+      "text": "遗言能短点吗？我等着下班。"
+    },
+    "high-skill1": {
+      "duration": 0.8925,
+      "text": "过来听判！"
+    },
+    "high-skill2": {
+      "duration": 0.9675,
+      "text": "起刃！"
+    },
+    "high-parry": {
+      "duration": 0.7175,
+      "text": "驳回。"
+    },
+    "extra-selection": {
+      "duration": 4.5175,
+      "text": "花是送你的。斧子？那是我的餐具。"
+    },
+    "extra-intro": {
+      "duration": 3.4125,
+      "text": "给客人留个位子。离斧刃近些。"
+    },
+    "extra-skill1": {
+      "duration": 1.0675,
+      "text": "请入席！"
+    },
+    "extra-skill2": {
+      "duration": 0.9025,
+      "text": "敬你一斧！"
+    },
+    "extra-parry": {
+      "duration": 1.6250416666666667,
+      "text": "失礼啦。"
+    },
+    "max-selection": {
+      "duration": 3.8075,
+      "text": "整座城都怕血月。你倒好，还敢约我出来。"
+    },
+    "max-intro": {
+      "duration": 5.2525,
+      "text": "今晚月色归我。影子嘛，借你躲一下。"
+    },
+    "max-skill1": {
+      "duration": 1.1575,
+      "text": "月下赴约！"
+    },
+    "max-skill2": {
+      "duration": 0.5675,
+      "text": "让道！"
+    },
+    "max-parry": {
+      "duration": 0.79,
+      "text": "太客气了。"
+    },
+    "ultra-selection": {
+      "duration": 3.9325,
+      "text": "深渊那顶王冠？押桌上，再来一局。"
+    },
+    "ultra-intro": {
+      "duration": 3.9775,
+      "text": "我的王座借你坐。赢了我，你再起来。"
+    },
+    "ultra-skill1": {
+      "duration": 1.8625,
+      "text": "深渊，留客！"
+    },
+    "ultra-skill2": {
+      "duration": 0.9525,
+      "text": "给我翻天！"
+    },
+    "ultra-parry": {
+      "duration": 0.9350416666666667,
+      "text": "还想加注？"
+    },
+    "ult": {
+      "duration": 0.9625,
+      "text": "噬光深渊！"
+    },
+    "win": {
+      "duration": 1.6325416666666666,
+      "text": "K.O."
+    }
+  },
+  "kimi": {
+    "selection": {
+      "duration": 3.33,
+      "text": "刚才那个音，你也听见了？嗯，这回准了。"
+    },
+    "intro": {
+      "duration": 3.31,
+      "text": "借我一拍，调一下弦。好了。"
+    },
+    "skill1": {
+      "duration": 0.59,
+      "text": "起弦！"
+    },
+    "skill2": {
+      "duration": 0.65,
+      "text": "换一拍。"
+    },
+    "parry": {
+      "duration": 0.675,
+      "text": "弦还好。"
+    },
+    "medium-selection": {
+      "duration": 2.31,
+      "text": "选个你喜欢的调子吧，我来和你。"
+    },
+    "medium-intro": {
+      "duration": 4.94,
+      "text": "听我指尖。第三拍一起进。"
+    },
+    "medium-skill1": {
+      "duration": 2.26,
+      "text": "银弦齐响！"
+    },
+    "medium-skill2": {
+      "duration": 2.54,
+      "text": "跟上拍子！"
+    },
+    "medium-parry": {
+      "duration": 0.78,
+      "text": "合拍。"
+    },
+    "high-selection": {
+      "duration": 3.43,
+      "text": "他终于睡着了。我们轻点说。"
+    },
+    "high-intro": {
+      "duration": 2.99,
+      "text": "你心跳得好快。听琴，会慢下来的。"
+    },
+    "high-skill1": {
+      "duration": 1.3,
+      "text": "弦声过隙！"
+    },
+    "high-skill2": {
+      "duration": 2.03,
+      "text": "余音，追上。"
+    },
+    "high-parry": {
+      "duration": 1.1,
+      "text": "心神已定。"
+    },
+    "extra-selection": {
+      "duration": 3.46,
+      "text": "这段曲子，每年今夜才奏一回。坐近些。"
+    },
+    "extra-intro": {
+      "duration": 3.33,
+      "text": "月影落到琴徽上了。正是时候。"
+    },
+    "extra-skill1": {
+      "duration": 1.32,
+      "text": "启奏！"
+    },
+    "extra-skill2": {
+      "duration": 1.85,
+      "text": "移宫换羽！"
+    },
+    "extra-parry": {
+      "duration": 1.085,
+      "text": "礼乐未歇。"
+    },
+    "max-selection": {
+      "duration": 3.25,
+      "text": "谱子收起来吧。今晚，听风换指。"
+    },
+    "max-intro": {
+      "duration": 2.41,
+      "text": "我让你半拍。起手。"
+    },
+    "max-skill1": {
+      "duration": 1.34,
+      "text": "五弦同振！"
+    },
+    "max-skill2": {
+      "duration": 1.6,
+      "text": "错拍入弦！"
+    },
+    "max-parry": {
+      "duration": 1.23,
+      "text": "一音未偏。"
+    },
+    "ultra-selection": {
+      "duration": 4.635,
+      "text": "月亮升早了。原来它也记得这支曲子。"
+    },
+    "ultra-intro": {
+      "duration": 5.05,
+      "text": "漫漫长夜，只消有人听，我就弹下去。"
+    },
+    "ultra-skill1": {
+      "duration": 1.09,
+      "text": "月弦齐鸣！"
+    },
+    "ultra-skill2": {
+      "duration": 1.49,
+      "text": "送过长夜！"
+    },
+    "ultra-parry": {
+      "duration": 1.23,
+      "text": "余音犹在。"
+    },
+    "ult": {
+      "duration": 1.48,
+      "text": "月下镇魂曲！"
+    },
+    "win": {
+      "duration": 1.05,
+      "text": "K.O."
+    }
+  }
+}

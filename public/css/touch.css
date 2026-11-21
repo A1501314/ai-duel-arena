@@ -1,0 +1,170 @@
+#touch-controls.arc-discs {display: none}
+html[data-controls="touch"] #battle #touch-controls.arc-discs {
+  --disc-size: clamp(134px, min(22vw, 35.5svh), 193px);
+  --disc-key: clamp(44px, calc(var(--disc-size) * .31), 55px);
+  --pad-inset: clamp(8px, 2.7vw, 40px);
+  --touch-ink: #f4f6ee;
+  --touch-signal: #e2f68d;
+  position: absolute;
+  z-index: 7;
+  display: flex;
+  gap: clamp(14px, 3.4vw, 56px);
+  align-items: end;
+  justify-content: space-between;
+  left: max(var(--pad-inset), env(safe-area-inset-left, 0px));
+  right: max(var(--pad-inset), env(safe-area-inset-right, 0px));
+  bottom: max(clamp(8px, 3svh, 24px), env(safe-area-inset-bottom, 0px));
+  margin: 0;
+  padding: 0;
+  color: var(--touch-ink);
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+#touch-controls.arc-discs[data-seats="0"] {visibility: hidden}
+.arc-discs .disc-seat {
+  flex: 1 1 0;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+  pointer-events: none;
+}
+.arc-discs .disc-seat-label {
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #f2f4ed;
+  padding: 2px 6px;
+  font: italic 900 13px/1 var(--display,Arial,sans-serif);
+  background: #111620bd;
+  border-radius: 3px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.arc-discs[data-seats="1"] .disc-seat-label {display: none}
+.arc-discs[data-seats="2"] .disc-seat:last-child {flex-direction: row-reverse}
+html[data-controls="touch"] #battle #touch-controls.arc-discs[data-seats="2"] {
+  --disc-size: clamp(119px, min(18vw, 32svh), 162px);
+  --pad-inset: clamp(4px, 1.8vw, 24px);
+}
+.arc-discs .arc-disc {
+  position: relative;
+  width: var(--disc-size);
+  height: var(--disc-size);
+  flex: 0 0 var(--disc-size);
+  border-radius: 50%;
+  isolation: isolate;
+  color: var(--touch-ink);
+  background: radial-gradient(circle at 38% 29%, #4a52633e, #13192099 60%, #0b0e168c);
+  box-shadow: inset 0 0 0 1px #f3f4ef97, inset 0 0 0 5px #10131c2e, 0 3px 14px #0609134f;
+  pointer-events: auto;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.arc-discs .arc-disc:before, .arc-discs .arc-disc:after {
+  content: ""; position: absolute; pointer-events: none; border-radius: 50%;
+}
+.arc-discs .arc-disc:before {
+  inset: 8%;
+  border: 1px solid #e3e9eb37;
+  background: repeating-conic-gradient(from -2deg, #f0f2ec69 0deg 2deg, transparent 2deg 45deg);
+  mask-image: radial-gradient(circle closest-side, transparent calc(100% - 6px), #000 calc(100% - 5px));
+}
+.arc-discs .disc-move:after {
+  inset: 22%; z-index: -1;
+  background: radial-gradient(circle at 49% 59%, #0c1017b3, #13182369 50%, #30374463);
+  box-shadow: inset 0 1px 5px #0d10194d;
+}
+.arc-discs .disc-action:after {
+  inset: 0;
+  background: conic-gradient(from -90deg, #d9ee86 0 var(--disc-charge,0%), transparent var(--disc-charge,0%) 100%);
+  mask-image: radial-gradient(circle closest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+  opacity: .84;
+}
+.arc-discs .disc-action.is-cancelled:after {opacity: .25}
+.arc-discs .disc-stick {
+  position: absolute; top: 50%; left: 50%; width: 27%; height: 27%; z-index: 3;
+  border-radius: 50%; transform: translate(-50%, -50%);
+  background: radial-gradient(circle at 40% 28%, #d5dbe1 0, #969da9 31%, #5f6876 65%, #37404c 95%);
+  box-shadow: inset 0 1px 2px #ffffffe0, inset 0 -2px 3px #080c124d, 0 4px 6px #07091185;
+  pointer-events: none;
+}
+.arc-discs .disc-stick:after {
+  content: ""; position: absolute; inset: 34%; border-radius: 50%; border: 1px solid #e6e9e7a8;
+  background: #bdc4cb34;
+}
+.arc-discs .disc-button {
+  appearance: none;
+  position: absolute; z-index: 2;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  width: var(--disc-key); height: var(--disc-key);
+  transform: translate(-50%, -50%);
+  border-radius: 50%; border: 0; margin: 0; padding: 0;
+  background: radial-gradient(circle at 44% 23%, #38404bd4, #171c25ed 78%);
+  box-shadow: inset 0 0 0 1px #ffffff77, inset 0 -2px 3px #0d0f156e, 0 1px 5px #080a118c;
+  color: #fffefa;
+  font: 750 12px/1.04 var(--cn,Arial,sans-serif);
+  text-align: center; white-space: nowrap;
+  user-select: none; touch-action: none;
+}
+.arc-discs .disc-button svg {
+  pointer-events: none; width: 17px; height: 17px;
+  stroke: currentColor; stroke-width: 1.65; fill: none; stroke-linejoin: round; stroke-linecap: round;
+}
+.arc-discs .disc-name, .arc-discs .disc-state {pointer-events: none}
+.arc-discs .disc-state {font: 750 9px/1.02 var(--mono,monospace); color: #e1e7e9}
+.arc-discs .disc-state:empty {display: none}
+.arc-discs .disc-move .disc-button {
+  background: transparent; box-shadow: none; color: #f9fbf6;
+  filter: drop-shadow(0 1px 2px #0a101b);
+}
+.arc-discs .disc-move .disc-button svg {width: 22px; height: 22px; stroke-width: 2.1}
+.arc-discs .disc-left {left: 18%; top: 50%}
+.arc-discs .disc-right {left: 82%; top: 50%}
+.arc-discs .disc-jump {left: 50%; top: 17%}
+.arc-discs .disc-guard {left: 50%; top: 83%}
+.arc-discs .disc-attack {
+  left: 50%; top: 50%; z-index: 3;
+  background: radial-gradient(circle at 40% 20%, #647071f2, #3e494af5 65%, #222c30);
+  box-shadow: inset 0 0 0 1px #e9ede4a3, inset 0 2px 3px #eef5dc6e, 0 2px 6px #080b1380;
+}
+.arc-discs .disc-attack svg {width: 21px; height: 21px; stroke-width: 1.6}
+.arc-discs .disc-skill1 {left: 19%; top: 69%}
+.arc-discs .disc-skill2 {left: 81%; top: 69%}
+.arc-discs .disc-ult {left: 50%; top: 16%}
+.arc-discs .disc-ult svg {width: 14px; height: 14px}
+.arc-discs .disc-button.is-cooling {background: #17202ae6; color: #c2cbd0}
+.arc-discs .disc-button.is-ready {color: #e8fcaf; box-shadow: inset 0 0 0 1px var(--touch-signal), 0 0 9px #e1f9a335}
+.arc-discs .disc-button.is-ready .disc-state {color: var(--touch-signal)}
+.arc-discs .disc-button.is-held, .arc-discs .disc-button.is-aimed {
+  color: #172011; background: #e2efb6;
+  box-shadow: inset 0 0 0 2px #f7ffde, 0 0 10px #dfea9a65;
+}
+.arc-discs .disc-button.is-aimed .disc-state {color: #343d27}
+.arc-discs .disc-button.is-aimed.is-cooling {color: #fff; background: #556171}
+.arc-discs .disc-button.is-aimed.is-cooling .disc-state {color: #e3e8ec}
+.arc-discs .disc-move .disc-button.is-held {color: var(--touch-signal); background: transparent; box-shadow: none}
+.arc-discs .disc-button:focus-visible {outline: 2px solid white; outline-offset: 2px}
+@media (orientation: portrait) {
+  html[data-controls="touch"] #battle #touch-controls.arc-discs {
+    --disc-size: clamp(136px, min(38vw, 25svh), 220px);
+    --pad-inset: clamp(6px, 3.8vw, 36px);
+    top: clamp(200px, 46svh, 100vw);
+    bottom: max(8px, env(safe-area-inset-bottom, 0px));
+    align-items: stretch; justify-content: center; flex-direction: column; gap: 8px;
+  }
+  html[data-controls="touch"] #battle #touch-controls.arc-discs[data-seats="2"] {
+    --disc-size: clamp(119px, min(37vw, 20svh), 166px);
+  }
+  .arc-discs .disc-seat {flex: 0 1 auto; min-height: var(--disc-size)}
+  .arc-discs .disc-seat-label {bottom: 48%}
+}
+@media (orientation: landscape) and (max-width: 650px) {
+  html[data-controls="touch"] #battle #touch-controls.arc-discs[data-seats="2"] {
+    --pad-inset: 4px; gap: 8px;
+  }
+  .arc-discs[data-seats="2"] .disc-seat-label {bottom: 0}
+}

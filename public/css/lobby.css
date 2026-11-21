@@ -1,0 +1,353 @@
+/* The lobby uses the embedded arcade display face. Keep match HUD and menus independent. */
+body:has(#lobby:not([hidden])) {
+  --acid: #dafa4e;
+  --gilt: #a6a9a7;
+  --line: #34363d;
+  --p1: #dafa4e;
+  --p2: #f4f4ef;
+  color: #f3f4ee;
+  background: radial-gradient(ellipse at 44% 0, #222429 0, transparent 65%), #121316;
+}
+body:has(#lobby:not([hidden])) .topbar {
+  background: #151619;
+  border-color: #34363c;
+}
+body:has(#lobby:not([hidden])) .brand strong {
+  color: #f5f6ef;
+  transform: skewX(-8deg);
+  font: 950 21px/1 var(--cn);
+  letter-spacing: -.06em;
+}
+body:has(#lobby:not([hidden])) .brand small {
+  color: #b4b7b7;
+  font: 700 9px/1.2 var(--cn);
+  letter-spacing: .14em;
+}
+body:has(#lobby:not([hidden])) .nav-account {
+  color: #eff0e9;
+  border-left: 1px solid #424449;
+  padding-left: 15px;
+}
+body:has(#lobby:not([hidden])) .nav-link.selected:after {height: 3px}
+body:has(#lobby:not([hidden])) footer {border-color: #34363b}
+#lobby {--stripe: #dafa4e; --soft: #b4b6b9; --counter: #101115}
+#lobby .section-top {
+  display: flex;
+  align-items: end;
+  gap: 18px;
+  margin: clamp(17px, 2.9vh, 30px) 0 14px;
+}
+#lobby .section-top .eyebrow {display: none}
+#lobby h1 {
+  margin: 0;
+  color: #f6f6ed;
+  font: 950 clamp(31px, 3.15vw, 49px)/1.12 var(--cn);
+  letter-spacing: -.065em;
+  transform: skewX(-5deg);
+  transform-origin: left bottom;
+}
+#lobby .mode-switch {
+  gap: 0;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid #47484f;
+  background: transparent;
+}
+#lobby .mode-switch button {
+  color: #bfc1c1;
+  padding: 10px clamp(11px, 1.25vw, 20px);
+  font: 750 13px/1.2 var(--cn);
+}
+#lobby .mode-switch [aria-pressed=true] {
+  background: #30332b;
+  color: #f3f5df;
+  box-shadow: inset 0 -3px var(--stripe);
+}
+#lobby .mode-switch button:hover {background: #303236; color: white}
+#lobby .matchup {
+  height: clamp(228px, 30.5vh, 340px);
+  border: 1px solid #4d5059;
+  box-shadow: 0 6px 24px #0708094d;
+}
+#lobby .hero {
+  background: radial-gradient(ellipse at 62% 31%, var(--light), transparent 65%),
+    linear-gradient(116deg, var(--dark), var(--art) 53%, var(--dark));
+}
+#lobby .hero.right {
+  background: radial-gradient(ellipse at 36% 28%, var(--light), transparent 65%),
+    linear-gradient(244deg, var(--dark), var(--art) 53%, var(--dark));
+}
+#lobby .hero:after {
+  background-size: 4px 4px;
+  opacity: .31;
+}
+#lobby .hero .speedlines {
+  background: repeating-linear-gradient(149deg, transparent 0 39px, #ffffff21 40px, transparent 42px 78px);
+}
+#lobby .hero .speedlines:before, #lobby .hero .speedlines:after {display: block}
+#lobby .hero .speedlines:before {background-color: #ffffff24}
+#lobby .hero .speedlines:after {background-color: #090b1c40}
+#lobby .hero.right .speedlines {transform: scaleX(-1)}
+#lobby .hero .art-mark {opacity: .15}
+#lobby .hero-img {
+  max-width: 82%;
+  filter: drop-shadow(4px 3px 1px #0a0b1b3d);
+  animation: lobby-pick .19s ease-out;
+}
+#lobby .hero[data-form="ultra"] .hero-img {
+  left: 55%; top: 2%; width: 84%; height: 166%; max-width: none;
+  object-fit: contain; object-position: center top;
+}
+#lobby .hero.right[data-form="ultra"] .hero-img {left: 45%}
+@keyframes lobby-pick {
+  from {opacity: .75; translate: -5px 0}
+  to {opacity: 1; translate: 0}
+}
+#lobby .hero-shade {
+  background: linear-gradient(0deg, #0b101cdd, transparent 56%), linear-gradient(90deg, #07102252, transparent 54%);
+}
+#lobby .right .hero-shade {
+  background: linear-gradient(0deg, #120e1ade, transparent 56%), linear-gradient(270deg, #170e1b52, transparent 54%);
+}
+#lobby .hero-tag {
+  top: 15px;
+  gap: 7px;
+  color: #f7f8f0;
+  font: 650 11px var(--cn);
+  letter-spacing: .04em;
+}
+#lobby .hero-tag b, #lobby .mini-tag {
+  color: #121318;
+  font: italic 900 22px/.99 var(--display);
+  letter-spacing: .02em;
+  transform: skewX(-8deg);
+  padding: 3px 8px;
+}
+#lobby .hero-copy {bottom: 15px}
+#lobby .hero-copy strong {
+  color: #fcfcf2;
+  font: italic 900 clamp(48px, 5.3vw, 82px)/.97 var(--display);
+  letter-spacing: -.025em;
+  text-shadow: 2px 3px 0 #10121ad1, 0 4px 20px #11121955;
+}
+#lobby .hero-title {
+  color: #f9faf1;
+  font: 760 14px/1.25 var(--cn);
+  letter-spacing: .07em;
+}
+#lobby .hero-title i {height: 2px; width: 20px; transform: skewX(-17deg)}
+#lobby .hero-guide {font: 600 11px/1.25 var(--cn); color: #eaebea}
+#lobby .rating {color: #f6f7ee}
+#lobby .seam {
+  width: 5px;
+  background: #141418;
+  box-shadow: -1px 0 #e1e2d8a6, 1px 0 #e1e2d8a6;
+}
+#lobby .versus {
+  width: auto; height: auto; display: block;
+  padding: 0 .09em .035em 0;
+  border: 0; box-shadow: none; background: transparent;
+  top: 48%;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  color: var(--stripe);
+  font: italic 900 clamp(66px, 7.15vw, 108px)/.98 var(--display);
+  text-shadow: 3px 4px 0 #101115;
+}
+#lobby .versus span {display: block; transform: none; font: inherit; letter-spacing: -.065em}
+#lobby .versus:before {display: block; inset: 17% -17% 4%; background: #15151b}
+#lobby .roster-header, #lobby .stage-heading {
+  margin: 0 0 8px; min-height: 28px; align-items: center;
+}
+#lobby .roster-header {margin-top: 13px}
+#lobby .roster-header h2, #lobby .stage-heading h2 {
+  display: flex; align-items: center; gap: 8px; padding: 0; border: 0;
+  color: #f1f2ed; font: 850 18px/1.1 var(--cn); letter-spacing: -.02em;
+}
+#lobby .mark, #lobby .stage-heading h2:before {
+  content: ""; width: 4px; height: 15px; display: block;
+  background: var(--stripe); transform: skewX(-13deg);
+}
+#lobby .pick-hint {color: #a7a9ae}
+#lobby .assign {gap: 1px; background: #282a2e}
+#lobby .assign button, #lobby #cpu-level button {
+  border: 0; color: #bbbdc0; background: #25272b;
+  font: 650 12px/1.2 var(--cn); padding: 7px 11px;
+}
+#lobby .assign button.active, #lobby #cpu-level [aria-pressed=true] {
+  color: #f3f4ef; background: #3b3d40; box-shadow: inset 0 -2px var(--player, var(--stripe));
+}
+#lobby .assign button:hover, #lobby #cpu-level button:hover {color: #fff; background: #414347}
+#lobby .cards {gap: 8px}
+#lobby .card {
+  background: #25272b; border: 1px solid transparent;
+  box-shadow: inset 0 0 0 1px #ffffff0d;
+}
+#lobby .card-pic {
+  height: clamp(56px, 8.15vh, 85px);
+  border: 0;
+  background: linear-gradient(124deg, var(--dark), color-mix(in srgb, var(--art) 70%, #1b1b22), var(--light));
+}
+#lobby .card-pic:before {
+  background: repeating-linear-gradient(145deg, transparent 0 24px, #ffffff25 25px, transparent 27px 60px);
+}
+#lobby .card-pic:after {opacity: .31}
+#lobby .card-name {
+  font: italic 900 clamp(17px, 1.6vw, 24px)/1 var(--display);
+  color: #f1f3ec; letter-spacing: .008em; padding: 6px 9px 7px;
+}
+#lobby .card-name small {color: #bfc1c2; font: 650 10px/1 var(--cn)}
+#lobby .card .tags {left: 5px; top: 5px}
+#lobby .mini-tag {font-size: 13px; padding: 1px 5px}
+#lobby .card.owns0, #lobby .card.owns1 {border-color: transparent; box-shadow: inset 0 0 0 1px #a6a9a780}
+#lobby .card[aria-pressed=true] {border-color: var(--stripe); box-shadow: none}
+#lobby .card.owns0 .card-name:after, #lobby .card.owns1 .card-name:after {display: none}
+#lobby .card:hover {border-color: #eef0e8; transform: translateY(-2px)}
+#lobby .battlefields {margin-top: 12px}
+#lobby #stage-caption {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
+}
+#lobby .stage-gallery {
+  --cut: 13px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+}
+#lobby .stage-gallery button {
+  border: 0;
+  height: clamp(60px, 8vh, 85px);
+  margin-right: calc(-1 * var(--cut) + 3px);
+  background: #252930;
+  clip-path: polygon(var(--cut) 0, 100% 0, calc(100% - var(--cut)) 100%, 0 100%);
+}
+#lobby .stage-gallery button:first-child {clip-path: polygon(0 0, 100% 0, calc(100% - var(--cut)) 100%, 0 100%)}
+#lobby .stage-gallery button:last-child {margin: 0; clip-path: polygon(var(--cut) 0, 100% 0, 100% 100%, 0 100%)}
+#lobby .stage-gallery button:before {
+  inset: 0; opacity: .88;
+  background-image: linear-gradient(0deg, #090d17d9, #12152131 58%, #12152116), var(--field);
+  background-position: center, center 51%;
+  transition: transform .20s ease-out, opacity .20s;
+}
+#lobby .stage-gallery button span {
+  bottom: 9px; left: calc(var(--cut) + 3px);
+  color: #fff; font: 750 15px/1.2 var(--cn); letter-spacing: .035em;
+}
+#lobby .stage-gallery button:first-child span {left: 10px}
+#lobby .stage-gallery [aria-pressed=true]:before, #lobby .stage-gallery button:hover:before {opacity: 1}
+#lobby .stage-gallery [aria-pressed=true]:after {
+  content: ""; inset: auto 0 0; width: auto; height: 3px;
+  transform: none; background: var(--stripe); box-shadow: none;
+}
+#lobby .stage-gallery [aria-pressed=true] span:before {
+  content: ""; display: inline-block; width: 5px; height: 9px;
+  margin-right: 7px; transform: rotate(42deg) translateY(-1px);
+  border-right: 2px solid var(--stripe); border-bottom: 2px solid var(--stripe);
+}
+#lobby .stage-gallery button:focus-visible {outline: 0; box-shadow: inset 0 0 0 3px white}
+#lobby .launch-row {
+  display: flex; gap: 15px; align-items: center;
+  border-top: 1px solid #3a3d40; margin: 15px 0 17px; padding-top: 12px;
+}
+#lobby #cpu-level {gap: 2px; margin: 0}
+#lobby #cpu-level>span, #lobby .launch-rule {color: var(--soft)}
+#lobby .launch {
+  min-width: 208px; min-height: 43px;
+  padding: 10px 22px; gap: 10px; background: var(--stripe); color: #171911;
+  font: 900 18px/1.2 var(--cn); letter-spacing: .025em;
+}
+#lobby .launch:hover {background: #e8ff7c}
+#lobby .launch kbd {color: #434a22; border-color: #575d3b6b}
+@media (min-width: 761px) and (max-height: 770px) {
+  body:has(#lobby:not([hidden])) .nav-inner {height: 52px}
+  #lobby .section-top {margin: 15px 0 10px}
+  #lobby .matchup {height: clamp(190px, 29.5vh, 225px)}
+  #lobby .roster-header {margin-top: 10px}
+  #lobby .card-pic {height: clamp(51px, 7.5vh, 60px)}
+  #lobby .battlefields {margin-top: 8px}
+  #lobby .stage-gallery button {height: 58px}
+  #lobby .launch-row {margin: 11px 0 13px; padding-top: 10px}
+}
+@media (max-width: 760px) {
+  #lobby .section-top {margin-top: 17px}
+  #lobby .hero-copy strong {font-size: clamp(38px, 7vw, 53px)}
+  #lobby .hero-title {font-size: 12px}
+  #lobby .versus {font-size: clamp(54px, 9vw, 68px)}
+  #lobby .stage-gallery button span {font-size: 13px}
+}
+@media (max-width: 600px) {
+  body:has(#lobby:not([hidden])) .nav-inner {min-height: 48px; column-gap: 8px; row-gap: 4px}
+  body:has(#lobby:not([hidden])) .brand strong {font-size: 16px}
+  body:has(#lobby:not([hidden])) .brand small {font-size: 7px}
+  body:has(#lobby:not([hidden])) .nav-account {padding-left: 7px}
+  #lobby .section-top {display: block; margin: 15px 0 10px}
+  #lobby h1 {font-size: 32px; margin-bottom: 9px}
+  #lobby .mode-switch button {padding: 7px 12px; font-size: 12px}
+  #lobby .matchup {height: clamp(184px, 47vw, 222px)}
+  #lobby .hero-img {max-width: 102%; height: 181%; left: 58%}
+  #lobby .right .hero-img {left: 42%}
+  #lobby .hero[data-form="ultra"] .hero-img {left: 48%; width: 82%}
+  #lobby .hero.right[data-form="ultra"] .hero-img {left: 52%}
+  #lobby .hero-tag {top: 8px; left: 8px; font-size: 0; gap: 0}
+  #lobby .right .hero-tag {left: auto; right: 8px}
+  #lobby .hero-tag b {font-size: 16px; padding: 2px 5px}
+  #lobby .hero-copy {bottom: 8px; left: 8px}
+  #lobby .right .hero-copy {left: auto; right: 8px}
+  #lobby .hero-copy strong {font-size: clamp(32px, 8.3vw, 46px)}
+  #lobby .hero-title {font-size: 10px; gap: 4px; letter-spacing: .015em}
+  #lobby .hero-title i {width: 9px}
+  #lobby .hero-guide {font-size: 10px}
+  #lobby .versus {font-size: clamp(43px, 10.5vw, 57px)}
+  #lobby .roster-header {margin-top: 11px}
+  #lobby .roster-header h2, #lobby .stage-heading h2 {font-size: 16px}
+  #lobby .cards {gap: 6px}
+  #lobby .card-pic {height: clamp(49px, 13vw, 63px)}
+  #lobby .card-name {font-size: 17px; padding: 4px 6px}
+  #lobby .card .tags {left: 3px; top: 3px}
+  #lobby .mini-tag {font-size: 11px}
+  #lobby .assign button, #lobby #cpu-level button {font-size: 11px; padding: 6px 7px}
+  #lobby .battlefields {margin-top: 10px}
+  #lobby .stage-gallery {--cut: 9px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 0}
+  #lobby .stage-gallery button {height: 47px}
+  #lobby .stage-gallery button:nth-child(odd) {clip-path: polygon(0 0, 100% 0, calc(100% - var(--cut)) 100%, 0 100%)}
+  #lobby .stage-gallery button:nth-child(even) {margin: 0; clip-path: polygon(var(--cut) 0, 100% 0, 100% 100%, 0 100%)}
+  #lobby .stage-gallery button span {font-size: 12px; bottom: 7px}
+  #lobby .launch-row, #lobby .launch-row:has(#cpu-level:not([hidden])) {display: flex; gap: 8px; padding-top: 9px; margin: 10px 0 14px}
+  #lobby .launch {min-width: 110px; min-height: 38px; gap: 6px; padding: 9px 15px; font-size: 16px}
+}
+@media (pointer: coarse) and (max-height: 760px), (pointer: coarse) and (max-width: 600px) {
+  #lobby .launch-row {
+    position: sticky; bottom: 0; z-index: 5;
+    margin-bottom: 0; padding: 6px 0 max(6px, env(safe-area-inset-bottom));
+    background: #17191e; box-shadow: 0 -4px 9px #10111670;
+  }
+}
+@media (pointer: coarse) and (orientation: landscape) and (max-height: 540px) {
+  body:has(#lobby:not([hidden])) .nav-inner {height: 36px; min-height: 36px}
+  body:has(#lobby:not([hidden])) .brand strong {font-size: 17px}
+  body:has(#lobby:not([hidden])) .brand small {font-size: 8px}
+  #lobby .section-top {display: flex; align-items: center; margin: 4px 0}
+  #lobby h1 {margin: 0; font-size: clamp(21px, 3.1vw, 31px)}
+  #lobby .mode-switch button {padding: 7px 11px; font-size: 12px}
+  #lobby .player-standing {margin: 0 0 4px; padding: 2px 9px}
+  #lobby #standing-values strong {font-size: 13px}
+  #lobby .matchup {height: clamp(94px, 27svh, 145px)}
+  #lobby .hero-tag {top: 6px}
+  #lobby .hero-tag b {font-size: 17px}
+  #lobby .versus {font-size: clamp(45px, 13svh, 69px)}
+  #lobby .hero-copy {bottom: 5px}
+  #lobby .hero-copy strong {font-size: clamp(29px, 9.2svh, 44px)}
+  #lobby .hero-title {margin: 1px 0; font-size: 12px}
+  #lobby .rating {margin-top: 2px}
+  #lobby .roster-header, #lobby .stage-heading {min-height: 18px; margin: 1px 0}
+  #lobby .roster-header h2, #lobby .stage-heading h2 {font-size: 15px}
+  #lobby .assign button {padding: 4px 9px}
+  #lobby .pick-hint, #lobby .launch kbd {display: none}
+  #lobby .cards {grid-template-columns: repeat(6,minmax(0,1fr));gap: 5px}
+  #lobby .card-pic {height: clamp(29px,8.7svh,44px)}
+  #lobby .card-name {font-size: 16px; padding: 2px 5px 3px}
+  #lobby .battlefields {margin-top: 1px}
+  #lobby .stage-gallery {grid-template-columns: repeat(4,minmax(0,1fr))}
+  #lobby .stage-gallery button {height: clamp(34px,9.5svh,50px)}
+  #lobby .stage-gallery button span {bottom: 5px; font-size: 12px}
+  #lobby .launch-row {position: static; margin-top: 4px; padding-top: 3px; padding-bottom: max(3px,env(safe-area-inset-bottom))}
+  #lobby .launch {min-height: 34px; min-width: 144px; padding: 6px 12px; font-size: 16px}
+}

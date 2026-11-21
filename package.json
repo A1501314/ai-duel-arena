@@ -1,0 +1,13 @@
+{
+  "name": "ai-duel-arena",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "node server/server.cjs",
+    "lan": "node server/server.cjs --lan",
+    "test": "node --test server/progression.test.cjs server/public.test.cjs"
+  }
+}

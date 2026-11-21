@@ -1,0 +1,146 @@
+#guild .closet-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:1em}
+#guild .closet-head label,#guild .closet-head strong{font-size:14px}
+#guild .closet-head select{background:#211f29;color:#f4e4bd;border:1px solid #736953;padding:.4em}
+#guild .closet-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+#guild .closet-card{border-top:1px solid #826d48;padding:.35em .2em .7em;min-width:0}
+#guild .closet-card img{display:block;width:100%;height:clamp(98px,22vh,180px);object-fit:contain;background:radial-gradient(ellipse at center,#3a3542 0%,transparent 74%)}
+#guild .closet-card h3{margin:.35em 0;color:#f4dfb6}
+#guild .closet-card .guild-buttons{gap:5px;align-items:center;margin-top:.35em;font-size:13px}
+#guild .closet-card .command{padding:.4em .55em;min-height:32px;font-size:13px}
+#guild .closet-card button:disabled{opacity:.6;cursor:default}
+#guild .duel-rules summary{cursor:pointer;color:#e9d3aa;padding:.55em 0}
+#guild .duel-rules p{font-size:14px;line-height:1.65}
+#guild .account-rules{margin:16px 0 4px;border-block:1px solid #605444;color:#e8dfd1}
+#guild .account-rules>summary,#guild .rules-section>summary{
+ display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 2px;
+ list-style:none;font:650 15px/1.45 var(--cn);color:#ebd4a7
+}
+#guild .account-rules summary::-webkit-details-marker{display:none}
+#guild .account-rules summary::after{
+ content:"";flex:none;width:7px;height:7px;margin:0 5px 3px;
+ border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg)
+}
+#guild .account-rules[open]>summary::after,#guild .rules-section[open]>summary::after{transform:rotate(225deg);margin-bottom:-3px}
+#guild .account-rules summary:focus-visible{outline:2px solid #e9cd91;outline-offset:-2px}
+#guild .rules-body{min-width:0;padding:0 2px 5px}
+#guild .rules-body p{margin:0 0 10px;color:#d9d4cc;font:400 14px/1.7 var(--cn);text-indent:2em;overflow-wrap:break-word}
+#guild .rules-body b{color:#f1dcae;font-weight:650}
+#guild .rules-section{border-top:1px solid #48434a}
+#guild .rules-section>h4{margin:0;padding:10px 0 7px;color:#eee2ce;font:650 14px/1.45 var(--cn)}
+#guild .rules-section>summary{min-height:44px;padding:9px 0;font-size:14px;color:#eee2ce}
+#guild .account-rules table{
+ width:100%;max-width:100%;margin:0 0 12px;border-collapse:collapse;table-layout:fixed;
+ color:#e4e0d8;font:500 14px/1.5 var(--cn);font-variant-numeric:tabular-nums
+}
+#guild .account-rules th,#guild .account-rules td{padding:6px 4px;border-bottom:1px solid #423d43;text-align:center;overflow-wrap:anywhere}
+#guild .account-rules thead th{background:#332f30;color:#d9c6a5;font-size:12px;letter-spacing:.03em}
+#guild .account-rules th:first-child{text-align:left;padding-left:9px}
+#guild .account-rules tbody th{font-weight:550}
+#guild .rules-rewards th:first-child{width:30%}
+#guild .rules-rewards tbody td:nth-child(2){color:#f1d99c}
+#guild .rules-tiers th:first-child{width:27%}
+@media(max-width:380px){
+ #guild .account-rules th,#guild .account-rules td{padding:6px 2px}
+ #guild .rules-rewards th:first-child{width:28%}
+ #guild .account-rules thead th{letter-spacing:0}
+}
+#guild .rank-progress{display:block;font-size:12px}
+#guild .profile-values{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:10px 0 12px}
+#guild .profile-values dt{font-size:13px;line-height:1.5;color:#d0c5b5}
+#guild .profile-values dd{margin:2px 0 0;color:#f4e4c5;font:700 20px/1.2 var(--cn);font-variant-numeric:tabular-nums}
+#guild .profile-records{display:flex;flex-wrap:wrap;gap:3px 14px;margin-top:9px;font-variant-numeric:tabular-nums}
+#guild .profile-records span{white-space:nowrap}
+#guild .rank-progress progress{display:block;width:min(280px,100%);height:6px;accent-color:#c1ab78;margin:.5em 0}
+#guild .challenge-panel,#guild .avatar-album{border-top:1px solid #625441;padding:10px 0 13px}
+#guild .challenge-panel h4,#guild .avatar-album h4{margin:0 0 6px;color:#f0d6a5;font-size:17px}
+#guild .challenge-panel p,#guild .avatar-album p{margin:4px 0 8px;color:#d3cec5;font:400 13px/1.55 var(--cn)}
+#guild .challenge-panel label{display:flex;align-items:center;gap:9px;color:#eee2ce;font-size:13px}
+#guild .challenge-opponents{display:grid;grid-template-columns:repeat(auto-fit,minmax(72px,1fr));gap:4px;margin:8px 0;padding:0;list-style:none}
+#guild .challenge-opponents li{border-top:2px solid #625e61;padding:4px 0;min-width:0;color:#d5d1cb;font-size:13px}
+#guild .challenge-opponents li[data-state="胜"]{border-color:#90aaa0}
+#guild .challenge-opponents li[data-state="负"]{border-color:#a37473}
+#guild .challenge-opponents li[data-state="下一位"]{border-color:#dfbe82;color:#ffe1ac}
+#guild .challenge-opponents small,#guild .rules-tiers td small{display:block;color:#c4bbb0;line-height:1.35}
+#guild .rules-tiers th:first-child{width:18%}
+#guild .rules-tiers th:nth-child(2){width:23%}
+#guild .rules-tiers td:last-child{text-align:left}
+#guild .rules-tiers td small{margin-top:3px;font-size:11px}
+#guild .avatar-album h4 small{color:#d5c8b5;margin-left:4px;font-size:12px}
+#guild .avatar-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(65px,1fr));gap:5px}
+#guild .avatar-cards button{min-width:0;padding:4px 1px 6px;border:1px solid #585354;background:#262429;color:#ede4d6;display:grid;justify-items:center;gap:3px}
+#guild .avatar-cards button[aria-pressed=true]{border-color:#dbbd84}
+#guild .avatar-cards .locked .victor-face{filter:grayscale(.95);opacity:.6}
+#guild .avatar-cards b,#guild .avatar-cards small{font:500 11px/1.3 var(--cn)}
+#guild .avatar-cards small,#guild .avatar-detail small{color:#c7bbab}
+.victor-face{width:38px;height:38px;overflow:hidden;display:inline-block;vertical-align:middle;background:radial-gradient(ellipse at 50% 20%,#5d544f,#28232a);border:1px solid #9a845c}
+.victor-face img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 9%;transform:scale(1.8);transform-origin:50% 10%}
+.guild-profile h3 .victor-face,#guild-user .victor-face{margin-right:7px}
+#guild-user .victor-face{width:23px;height:23px}
+.public-avatar{display:inline-block;margin-right:6px;vertical-align:middle}
+.public-avatar .victor-face{width:27px;height:27px}
+#guild .avatar-detail{display:flex;align-items:center;flex-wrap:wrap;gap:9px 12px;margin-top:10px;color:#e3d1af;font-size:13px}
+#guild .avatar-detail .victor-face{width:55px;height:55px}
+#guild .avatar-detail small{display:block;margin-top:4px}
+#trial-result{white-space:pre-line}
+@media(max-width:480px){#guild .closet-list{gap:4px}#guild .closet-card .command{font-size:11px}}
+.phone-invite{display:grid;justify-items:center;gap:12px;text-align:center;padding:8px 0 12px}
+.phone-invite svg{display:block;width:min(204px,65vw);height:auto;background:#fff}
+.phone-invite p{margin:0}.phone-invite a{color:var(--acid);font:600 16px var(--mono,monospace);overflow-wrap:anywhere}
+@media (pointer:coarse) and (max-width:1000px){.nav-inner .nav-phone{display:none}}
+.player-standing{
+ display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 9px;
+ padding:7px 12px;border-left:3px solid var(--stripe);background:#24262a;color:#d8d9d4;
+ font:500 12px/1.3 var(--cn);font-variant-numeric:tabular-nums
+}
+#standing-values,.standing-actions{display:flex;align-items:center;gap:clamp(10px,2vw,26px)}
+#standing-values strong{color:var(--stripe);font-size:16px}
+#standing-values b{margin-left:3px;color:#f3f3ea;font-size:15px}
+.standing-next{display:flex;align-items:center;flex-wrap:wrap;gap:3px 8px;min-width:0;color:#c8cac5}
+.standing-next progress{width:clamp(46px,7vw,100px);height:4px;accent-color:var(--stripe)}
+.standing-actions{flex-shrink:0;gap:8px}
+.standing-actions button{border:0;border-bottom:1px solid #787b6c;padding:3px 2px;background:transparent;color:#eef0e7;font:inherit}
+.standing-actions button:hover,.standing-actions button:focus-visible{color:var(--stripe)}
+#guild .form-fitting{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:18px;margin:14px 0}
+#guild .form-art{margin:0;display:grid;place-items:center;min-width:0;overflow:hidden;background:radial-gradient(ellipse at 50% 46%,#494453 0%,#26242c 58%,#171923 100%)}
+#guild .form-art img{display:block;width:100%;height:clamp(240px,46svh,470px);object-fit:contain}
+#guild .form-art[data-form="ultra"] img{padding:clamp(5px,.8vmin,10px);object-position:center}
+#guild .form-pick{display:flex;min-width:0;flex-direction:column;justify-content:center;gap:12px}
+#guild .form-title small{font:650 12px var(--cn);letter-spacing:.1em;color:#cdbb9f}
+#guild .form-title h3{color:#f7e7c6;font-size:clamp(21px,3vw,29px);margin:.2em 0 0}
+#guild .form-tiers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
+#guild .form-tiers button{display:grid;gap:2px;text-align:left;border:1px solid #58575e;background:#292930;color:#cfcecb;padding:6px 8px;min-width:0}
+#guild .form-tiers button[aria-pressed="true"]{border-color:#ddc697;color:#fff2d5;background:#494234}
+#guild .form-tiers strong{font:700 15px var(--cn)}
+#guild .form-tiers span{font:500 12px var(--cn)}
+#guild .form-state{display:flex;align-items:center;gap:6px 12px;flex-wrap:wrap;min-height:34px;color:#d4c3a4;font-size:13px}
+#guild .form-state strong{color:#f1dfb7}
+#guild .closet-dyes .closet-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+#guild .room-seats>div{position:relative;overflow:hidden;isolation:isolate}
+#guild .room-seats .seat-art{position:absolute;inset:0 0 auto auto;width:48%;height:100%;object-fit:contain;object-position:right top;z-index:-1;opacity:.55}
+@media(max-width:700px){
+ .player-standing{align-items:flex-start;padding:6px 8px;gap:5px}
+ #standing-values{flex-wrap:wrap;gap:4px 11px}
+ .standing-next{flex-basis:100%}
+ .standing-actions{align-self:center;gap:6px}
+}
+@media(max-width:440px){
+ #guild .form-fitting{grid-template-columns:minmax(0,.76fr) minmax(0,1.24fr);gap:8px}
+ #guild .form-pick{gap:7px}
+ #guild .form-tiers button{padding:5px 4px}
+ #guild .form-tiers strong{font-size:14px}
+ #guild .closet-head{margin-top:6px;gap:5px}
+ .player-standing{font-size:11px}
+}
+@media(max-height:490px) and (orientation:landscape){
+ #guild .form-art img{height:230px}
+}
+@media(max-width:360px) and (orientation:portrait){
+ #guild .form-fitting{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:9px 12px}
+ #guild .form-pick{display:contents}
+ #guild .form-art{grid-column:1;grid-row:1}
+ #guild .form-art img{height:160px}
+ #guild .form-title{grid-column:2;grid-row:1;align-self:center}
+ #guild .form-tiers,#guild .form-state{grid-column:1/-1}
+ #guild .form-tiers{grid-template-columns:repeat(3,minmax(0,1fr))}
+ #guild .form-tiers button{padding:5px 6px}
+}

@@ -1,0 +1,5 @@
+{$ARENA_DOMAIN} {
+	@assets path / /index.html /js/* /css/*
+	encode @assets zstd gzip
+	reverse_proxy 127.0.0.1:8787
+}

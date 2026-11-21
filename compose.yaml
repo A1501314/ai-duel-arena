@@ -1,0 +1,29 @@
+name: ai-duel
+services:
+  game:
+    image: node:24-bookworm-slim
+    user: node
+    working_dir: /srv/game
+    command: ["node", "server/server.cjs", "--port", "8787", "--db", "/home/node/arena.sqlite", "--public-origin", "https://${ARENA_DOMAIN:?Set ARENA_DOMAIN to your domain}", "--loopback-proxy"]
+    volumes:
+      - ./:/srv/game:ro
+      - accounts:/home/node
+    # Caddy shares this network namespace. Only its public ports are published.
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: unless-stopped
+  https:
+    image: caddy:2-alpine
+    network_mode: service:game
+    environment:
+      ARENA_DOMAIN: "${ARENA_DOMAIN:?Set ARENA_DOMAIN to your domain}"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - certificates:/data
+      - caddy_config:/config
+    restart: unless-stopped
+volumes:
+  accounts:
+  certificates:
+  caddy_config:

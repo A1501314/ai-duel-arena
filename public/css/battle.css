@@ -1,0 +1,139 @@
+/* Only the match occupies the viewport. Lobby navigation remains in normal flow. */
+body:has(#battle:not([hidden])){overflow:hidden;background:#0a0c11}
+body:has(#battle:not([hidden])) :is(.topbar,footer){display:none}
+#battle{
+  --p1:#69dfea;--p2:#ff9b86;--acid:#dcfa5a;
+  position:fixed;inset:0;z-index:2;isolation:isolate;overflow:hidden;background:#0b1019;color:#fff;
+  --edge-x:max(2.6vw,env(safe-area-inset-left),env(safe-area-inset-right),12px);
+  --edge-top:max(2.1svh,env(safe-area-inset-top),7px);
+}
+#battle .arena-wrap{
+  position:absolute;inset:0;isolation:isolate;width:100%;height:100%;aspect-ratio:auto;min-height:0;max-height:none;
+  margin:0;border:0;background:#111725;
+}
+#battle .arena-wrap canvas{display:block;width:100%;height:100%}
+#battle .battle-matte{position:absolute;top:0;left:0;max-width:none;max-height:none;width:auto;height:auto;transform-origin:0 0;will-change:transform;pointer-events:none}
+#battle .battle-matte[hidden]{display:none}
+#battle .arena-wrap>#arena{position:relative;background:transparent}
+#battle .hud{
+  z-index:2;display:grid;grid-template-columns:minmax(0,1fr) clamp(65px,6.4vw,110px) minmax(0,1fr);
+  align-items:start;gap:clamp(7px,1.1vw,21px);padding:var(--edge-top) var(--edge-x) 30px;
+  background:linear-gradient(180deg,#070911a8 0%,#090b132b 74%,transparent);
+}
+#battle .playerhud{display:grid;grid-template-columns:clamp(40px,4.2vw,68px) minmax(0,1fr);gap:clamp(5px,.65vw,11px);align-items:start;min-width:0}
+#battle .playerhud.reverse{grid-template-columns:minmax(0,1fr) clamp(40px,4.2vw,68px)}
+#battle .avatar{display:block;width:100%;height:auto;aspect-ratio:1.1;transform:none;border:0;box-shadow:inset 0 -2px var(--player);
+  background:linear-gradient(135deg,#0b121d,var(--art));clip-path:polygon(0 0,100% 0,100% 76%,77% 100%,0 100%)}
+#battle .reverse .avatar{order:1;clip-path:polygon(0 0,100% 0,100% 100%,23% 100%,0 76%)}
+#battle .avatar img{width:112%;height:auto;left:-6%;top:-3%}
+#battle .hud-track{min-width:0}
+#battle .hud-name{
+  display:flex;gap:8px;align-items:center;min-height:22px;
+  font:900 italic clamp(21px,2.1vw,34px)/.94 var(--display);letter-spacing:.015em;text-shadow:0 1px 4px #10101a;
+}
+#battle .hud-name strong{font:inherit;color:#fff;white-space:nowrap}
+#battle .hud-name>b{font:800 10px var(--cn);color:var(--player);white-space:nowrap}
+#battle .duelist{font:600 11px var(--cn);letter-spacing:0;max-width:12em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#e9e9ed}
+#battle .round-dots{display:inline-flex;gap:6px;margin:0 1px 0 auto}
+#battle .reverse .round-dots{margin:0 auto 0 1px}
+#battle .round-dots i{height:7px;width:7px;transform:rotate(45deg);background:#191c28bb;border:1px solid #edf3f8b5}
+#battle .round-dots i.won{background:var(--player);border-color:#fff;box-shadow:0 0 5px var(--player)}
+#battle .life{height:clamp(10px,1.55svh,19px);margin-top:5px;transform:skewX(-9deg);border:1px solid #ffffffa8;background:#151925d9;isolation:isolate}
+#battle .reverse .life{transform:skewX(9deg)}
+#battle .life>span,#battle .life>i{position:absolute;inset:0;display:block;width:100%;height:100%;transform-origin:left}
+#battle .life>span{z-index:1;background:linear-gradient(180deg,#d9fdff 0%,#71e5ee 17%,#36acbf 100%);transition:transform .08s linear}
+#battle .reverse .life>span{background:linear-gradient(180deg,#fff1dc 0%,#ffb19a 17%,#ee745d 100%)}
+#battle .life>i{background:#f3ede1;transition:transform .46s ease-out .12s}
+#battle .reverse .life>span,#battle .reverse .life>i{transform-origin:right}
+#battle .life:after{content:"";position:absolute;inset:0;z-index:2;background:repeating-linear-gradient(90deg,transparent 0 calc(25% - 1px),#10151c5c calc(25% - 1px) 25%);pointer-events:none}
+#battle .hud-resources{display:flex;align-items:center;gap:5px;min-height:11px;margin-top:3px}
+#battle .reverse .hud-resources{flex-direction:row-reverse}
+#battle .power,#battle .guard-meter{margin:0;transform:skewX(-12deg);background:#0c101abd;box-shadow:0 0 0 1px #e4e7ea3b}
+#battle .power{width:42%;height:4px}#battle .guard-meter{width:17%;height:3px}
+#battle .power span{background:var(--player)}
+#battle .guard-meter span{background:#d9e1e5}
+#battle .life-number{font:700 10px var(--mono);line-height:1;color:#fff;opacity:.9;text-shadow:0 1px 2px #030713}
+#battle .escape-hint{display:inline-block;margin-top:3px;background:#eefbbf;color:#212620;padding:2px 5px;font:800 11px var(--cn)}
+#battle .timebox{min-width:0;align-self:start;padding:0 0 7px;color:#fffaf2;text-shadow:1px 2px 0 #1b1724,0 2px 10px #0c1321}
+#battle .timebox small{font:700 clamp(9px,.77vw,13px)/1.1 var(--cn);color:#f8f7ec;letter-spacing:.1em}
+#battle .timebox b{font:900 italic clamp(34px,4.05vw,67px)/.93 var(--display);font-variant-numeric:tabular-nums}
+#battle .move-toast:not(:empty){border:0;border-bottom:2px solid var(--p1);padding:3px 10px;background:linear-gradient(90deg,#101926e3,transparent);font:800 clamp(14px,1.6vw,27px) var(--cn)}
+#battle .move-toast.second:not(:empty){border-color:var(--p2);background:linear-gradient(270deg,#101926e3,transparent)}
+#battle .combo{font-family:var(--display),var(--cn);color:#f3ffb0}
+#battle .callout{font:900 italic clamp(40px,7vw,102px)/1.1 var(--display),var(--cn);color:#fffef1;text-shadow:3px 4px #1b152b}
+#battle .battle-top{
+  position:absolute;z-index:4;left:50%;bottom:max(12px,env(safe-area-inset-bottom));transform:translateX(-50%);
+  display:flex;gap:3px;align-items:center;justify-content:center;height:auto;margin:0;white-space:nowrap;
+}
+#battle .battle-top button{
+  display:flex;gap:5px;align-items:center;justify-content:center;color:#f1f3f6;background:#10131eaf;border:0;
+  font:650 11px var(--cn);padding:7px 9px;min-height:28px;
+}
+#battle .battle-top button:hover{background:#202634;color:var(--acid)}
+#battle .battle-top svg{width:15px;height:15px}
+#battle .battle-meta,.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+#battle .net-health:not(:empty){position:absolute;z-index:4;top:24%;left:50%;transform:translateX(-50%);padding:6px 12px;background:#0a111edc;color:#fff0c1;font:700 13px var(--cn)}
+#battle .skillbars{
+  position:absolute;z-index:2;bottom:0;left:0;width:100%;display:flex;align-items:end;justify-content:space-between;
+  margin:0;padding:30px var(--edge-x) max(12px,env(safe-area-inset-bottom));pointer-events:none;
+  background:linear-gradient(0deg,#090c16b8,transparent);
+}
+#battle .skillbars>div{display:flex;flex:0 1 42%;gap:3px 12px;flex-wrap:wrap}#battle #skills1{justify-content:flex-end}
+#battle .skill-key{border:0;background:none;padding:1px 0;color:white;font:650 clamp(10px,.85vw,13px) var(--cn);text-shadow:0 1px 3px #141328}
+#battle .skill-key kbd{padding:0 3px;margin-right:3px;border:0;border-bottom:1px solid #cad1d8;background:#1118249e;font:800 .9em var(--mono)}
+#battle .skill-key.wait{color:#c0bdc7}#battle .skill-key.ready{color:#e5ff7d}
+#battle .movement-help{display:none}
+html[data-controls=touch] #battle .skillbars,html[data-controls=keyboard] #touch-controls{display:none!important}
+.controls-choice{display:inline-flex;align-items:center;border-bottom:1px solid #77798450;gap:1px;white-space:nowrap}
+.controls-choice button{padding:5px 9px;font:700 12px var(--cn);color:#afb3bd}
+.controls-choice [aria-pressed=true]{color:#e4fc71;box-shadow:inset 0 -2px #dafa4e}
+.guide-choice{margin-bottom:14px}.guide-choice button{padding:8px 13px}
+.guide-touch p+p{margin:6px 0}
+html[data-controls=touch] .guide-keyboard,html[data-controls=keyboard] .guide-touch{display:none}
+html[data-controls=touch] #lobby .pick-hint,html[data-controls=touch] #lobby .launch kbd{display:none}
+#modal,#guild{--acid:#dafa4e;border:1px solid #50545e;border-top:3px solid var(--acid);background:linear-gradient(130deg,#23262f,#181b22 75%)}
+:is(#modal,#guild) .modal-top h2,:is(#modal,#guild) h3{font-family:var(--cn);font-weight:850;letter-spacing:.02em}
+#modal .arc-manual{--lime:#dafa4e}#guild .room-title strong,#guild .guild-profile strong{font-family:var(--display),var(--cn)}
+@media(max-width:1020px){
+  #battle .hud{grid-template-columns:minmax(0,1fr) 57px minmax(0,1fr)}
+  #battle .hud-name{font-size:21px}#battle .duelist{font-size:10px;max-width:7em}
+  #battle .skillbars>div{gap:2px 6px}#battle .battle-top button{padding:5px 7px}
+}
+@media(orientation:landscape) and (max-height:580px){
+  #battle .hud{--edge-x:max(2.9vw,env(safe-area-inset-left),env(safe-area-inset-right),10px);grid-template-columns:minmax(0,1fr) 55px minmax(0,1fr);gap:7px;padding-bottom:12px}
+  #battle .playerhud,#battle .playerhud.reverse{display:block}
+  #battle .avatar{display:none}#battle .hud-name{min-height:14px;font-size:18px;gap:6px}
+  #battle .hud-name b{font-size:8px}#battle .duelist{font-size:8px;max-width:10em}
+  #battle .life{height:8px;margin-top:3px}#battle .hud-resources{margin-top:2px;min-height:6px}
+  #battle .power{height:3px}#battle .guard-meter{height:2px}#battle .life-number{font-size:8px}
+  #battle .round-dots{gap:4px}#battle .round-dots i{width:5px;height:5px}
+  #battle .timebox b{font-size:34px}#battle .timebox small{font-size:8px}
+  #battle .super-banner{top:17%}#battle .battle-top{bottom:max(5px,env(safe-area-inset-bottom))}
+  html[data-controls=touch] #battle .battle-top button{color:#f7f8fc;background:#0c132087;min-height:32px;min-width:34px;padding:5px}
+  html[data-controls=touch] #battle .battle-top button span{display:none}
+}
+@media(orientation:portrait){
+  #battle{background:radial-gradient(ellipse at 50% 28%,#253442,#121721 58%,#0c1018)}
+  #battle:before{content:"";position:absolute;inset:22% -7% 0;z-index:-1;background-image:linear-gradient(180deg,#11172260,#0c111ae8 73%),var(--portrait-scene);background-size:cover;background-position:center 74%;filter:blur(20px) saturate(.55);opacity:.4}
+  #battle .arena-wrap{height:clamp(200px,46svh,100vw);inset:0 0 auto}
+  #battle .hud{grid-template-columns:minmax(0,1fr) 42px minmax(0,1fr);gap:4px;padding:var(--edge-top) 9px 16px}
+  #battle .playerhud,#battle .playerhud.reverse{display:block}#battle .avatar{display:none}
+  #battle .hud-name{font-size:17px;min-height:15px;gap:4px}#battle .hud-name b{font-size:8px}
+  #battle .duelist{max-width:4em;font-size:8px}#battle .round-dots{gap:3px}#battle .round-dots i{width:4px;height:4px}
+  #battle .timebox b{font-size:29px}#battle .timebox small{font-size:7px}
+  #battle .life{height:7px;margin-top:3px}#battle .hud-resources{min-height:5px}#battle .life-number{font-size:8px}
+  #battle .timebox{padding:0}#battle .power{height:3px}#battle .guard-meter{height:2px}
+  #battle .battle-top{bottom:max(12px,env(safe-area-inset-bottom))}#battle .skillbars{bottom:51px;padding-top:0}
+  #lobby .launch-row{flex-wrap:wrap}#lobby .controls-choice button{padding:4px 5px;font-size:10px}
+}
+#entrance-caption{position:absolute;z-index:4;bottom:7%;left:50%;transform:translateX(-50%);width:max-content;max-width:88%;padding:.32em .9em;text-align:center;color:#fff4de;background:linear-gradient(90deg,transparent,#151018cf 12% 88%,transparent);font:500 clamp(12px,1.4vw,18px)/1.5 var(--cn);pointer-events:none;text-shadow:0 1px 3px #000}
+#entrance-caption b{color:#edd297;margin-right:.65em}
+#skip-opening{position:absolute;z-index:5;right:2%;top:24%;color:#f6e9cc;padding:.4em .65em;border:1px solid #ead9af62;background:#16121bbf;font:500 12px var(--cn)}
+#skip-opening[hidden],#entrance-caption[hidden]{display:none}
+
+#battle .avatar .face-film{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+@media(max-width:760px),(orientation:landscape) and (max-height:580px),(orientation:portrait){
+  #battle .playerhud{display:grid;grid-template-columns:clamp(26px,4.8vw,38px) minmax(0,1fr);gap:4px}
+  #battle .playerhud.reverse{display:grid;grid-template-columns:minmax(0,1fr) clamp(26px,4.8vw,38px)}
+  #battle .avatar{display:block;align-self:start;aspect-ratio:1}
+}

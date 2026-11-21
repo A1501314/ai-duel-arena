@@ -1,0 +1,3 @@
+Motion capture data used to animate some fighters was obtained from mocap.cs.cmu.edu. The database was created with funding from NSF EIA-0196217.
+Dataset: Carnegie Mellon University Motion Capture Database, subject 144.
+https://mocap.cs.cmu.edu/
