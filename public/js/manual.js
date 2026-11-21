@@ -121,7 +121,8 @@
   function credits() {
     return outer('<div class="m-credit"><b>游戏制作</b><p>《超智能决斗》由 <a href="https://github.com/A1501314" target="_blank" rel="noopener noreferrer">@A1501314</a> 发起并设计。本作为非官方同人游戏。</p></div>'+
       '<div class="m-credit"><b>基础角色形象</b><p>六名 AI 娘的角色设计与基础立绘取自 ZipZipPipe《AI娘化》。DeepSeek 鲸鱼娘原型「溟月」由上善无形创作，女仆版由 ZipZipPipe 二次设计。Kimi 使用同一图集的双手放低版。公开版素材经过裁切、抠图和动作处理。</p><a href="https://www.pixiv.net/artworks/148186519" target="_blank" rel="noopener noreferrer">ZipZipPipe 的图集与使用条件</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" target="_blank" rel="noopener noreferrer">DeepSeek 美术许可</a></div>'+
-      '<div class="m-credit"><b>进阶形象与招式</b><p>项目制作人使用 ChatGPT 依照上述角色设定二次创作进阶造型。战斗使用透明动作图集、分层光效和程序合成的打击音效。中文对白可由设备已有的本地中文语音朗读。</p></div>'+
+      '<div class="m-credit"><b>进阶形象与招式</b><p>项目制作人使用 ChatGPT 依照上述角色设定二次创作进阶造型。战斗使用透明动作图集、分层光效和程序合成的打击音效。</p></div>'+
+      '<div class="m-credit"><b>原创角色声音</b><p>游戏人物声音为本项目原创设计。角色声音设计与台词由 @A1501314 创作。宣传片配音通过 BreezeBlue 合成，游戏对白由设备本地中文语音播放。</p></div>'+
       '<div class="m-credit"><b>使用条件</b><p>使用项目自有代码须署名 @A1501314，商业使用须另行取得书面许可。第三方美术、字体、二维码工具及其他第三方材料适用各自的许可和署名要求。各产品名称与商标属于相应权利人。</p></div>');
   }
   window.ArenaManual = Object.freeze({ codex, guide, credits });
