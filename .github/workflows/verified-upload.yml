@@ -1,0 +1,40 @@
+name: Publish verified game snapshot
+on:
+  push:
+    branches: [release-upload-v1]
+    paths: ['.github/workflows/verified-upload.yml']
+permissions:
+  contents: write
+  pages: write
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Verify archive, tree and commit before updating main
+        shell: bash
+        run: |
+          set -euo pipefail
+          api="repos/$GITHUB_REPOSITORY"
+          for attempt in $(seq 1 40); do
+            asset=$(gh api "$api/releases" --jq '[.[] | select(.draft and .author.login == "A1501314" and (.name | contains("v1.0.0"))) | .assets[] | select(.name == "ai-duel-arena-v1.0.0.zip" and .state == "uploaded") | .id] | if length == 1 then .[0] else empty end')
+            if [ -n "$asset" ]; then break; fi
+            sleep 10
+          done
+          test -n "$asset"
+          gh api "$api/releases/assets/$asset" -H 'Accept: application/octet-stream' > "$RUNNER_TEMP/arena.zip"
+          echo "381bf5093eda986ea42caee866285e87cd38bb4ee49ac724899e28a566f44ea2  $RUNNER_TEMP/arena.zip" | sha256sum --check
+          gh auth setup-git
+          git clone --branch main --depth=2 "https://github.com/$GITHUB_REPOSITORY.git" game
+          cd game
+          test "$(git rev-parse HEAD)" = 604ad2f5e53582b33adaf782880580216fb41bbb
+          unzip -oq "$RUNNER_TEMP/arena.zip"
+          git add --all
+          test "$(git write-tree)" = 319f3d3129c84457a70a0048fe948508fd153a85
+          commit=$(printf %s 'dHJlZSAzMTlmM2QzMTI5Yzg0NDU3YTcwYTAwNDhmZTk0ODUwOGZkMTUzYTg1CnBhcmVudCA2MDRhZDJmNWU1MzU4MmIzM2FkYWY3ODI4ODA1ODAyMTZmYjQxYmJiCmF1dGhvciBBMTUwMTMxNCA8MjA2MjIxNzAxK0ExNTAxMzE0QHVzZXJzLm5vcmVwbHkuZ2l0aHViLmNvbT4gMTc5NTI3NzY3MSArMDgwMApjb21taXR0ZXIgQTE1MDEzMTQgPDIwNjIyMTcwMStBMTUwMTMxNEB1c2Vycy5ub3JlcGx5LmdpdGh1Yi5jb20+IDE3OTUyNzc2NzEgKzA4MDAKCuWPkeW4g+i2heaZuuiDveWGs+aWlyB2MS4wLjAg5YWN6LS55ri4546p54mICg==' | base64 -d | git hash-object -w -t commit --stdin)
+          test "$commit" = 7d41544b0c38b1b7cf09e64efb85a015a2bfef24
+          git push origin "$commit:refs/heads/main"
+      - name: Request Pages build of the published commit
+        run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"
